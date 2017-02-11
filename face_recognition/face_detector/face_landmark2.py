@@ -7,11 +7,6 @@ import re
 import numpy as np
 from PIL import Image
 import time
-#0~16,17~26 chin
-#27~35 nose
-#36~41 left eye
-#42~47 right eye
-#48~68 mouse
 
 rotation_angle=[-45,45]
 
@@ -44,9 +39,11 @@ for f in glob.glob(os.path.join(faces_folder_path, "*.jpg")):
 
             shape = predictor(img, d)
             # plot face features
+            """
             for i in range(0,68):
                 center=(shape.part(i).x,shape.part(i).y)
                 cv2.circle(img,center,1,(0,0,255),-1)
+            """
             bottom=np.array((shape.part(8).x,shape.part(8).y))
             right=np.array((shape.part(16).x,shape.part(16).y))
             left=np.array((shape.part(0).x,shape.part(0).y))
