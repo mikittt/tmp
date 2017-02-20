@@ -22,8 +22,8 @@ detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(predictor_path)
 file_list=glob.glob(os.path.join(faces_folder_path, "1*.jpg"))
 file_count=len(file_list)//core+1
-def face_crop(file_list,number):
-    for f in file_list:
+def face_crop(file_ls,number):
+    for f in file_ls:
         print("Processing file: {}".format(f))
         img = cv2.imread(f)
         dets = detector(img, 1)
